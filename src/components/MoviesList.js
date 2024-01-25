@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import MovieCard from './MovieCard';
 
-const MovieList = () => {
+const MovieList = ({ listType }) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://api.themoviedb.org/3/movie/popular', {
+        const response = await axios.get(`https://api.themoviedb.org/3/movie/${listType}`, {
           params: { language: 'en-US', page: '1' },
           headers: {
             accept: 'application/json',

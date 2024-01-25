@@ -7,7 +7,15 @@ const Home = () => {
   return (
     <div>
         <Header />
-        <MoviesList />
+        <h1>Popular Movies</h1>
+        <br />
+
+        <MoviesList listType='popular'/>
+        <br />
+        <h1>Top Rated</h1>
+        <br />
+
+        <MoviesList listType='top_rated'/>
     </div>
   );
 };
