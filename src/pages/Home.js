@@ -5,7 +5,7 @@ import MoviesList from '../components/MoviesList';
 
 const Home = () => {
   return (
-    <div>
+    <div className=''>
         <Header />
         <h1>Popular Movies</h1>
         <br />

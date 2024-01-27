@@ -27,9 +27,9 @@ const MovieList = ({ listType }) => {
 
   return (
     <div>
-      <ul>
+      <ul className='grid gap-4 grid-rows-1 grid-cols-7'>
         {movies.map((movie) => (
-          <MovieCard title={movie.title} />
+          <MovieCard title={movie.title} overview={movie.overview} id={movie.id} posterPath={movie.poster_path}/>
         ))}
       </ul>
     </div>
