@@ -56,28 +56,27 @@ const MovieDetail = () => {
     fetchData();
   }, []);
 
-console.log(cast);
-console.log(director);
+
 
    return (
-    <div className="min-h-screen min-w-full flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md max-w-screen-xl w-full flex flex-row items-center">
-        <img className="rounded-lg shadow-md w-1/3" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}></img>
+    <div className="min-h-screen min-w-full flex items-center justify-center bg-[#0b2545]">
+      <div className="bg-[#13315c] p-8 rounded-lg shadow-md max-w-screen-xl w-full flex flex-row items-center">
+        <img className="rounded-lg shadow-md w-1/3 " src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}></img>
         <div className=' pl-16'>
-        <h1 className="text-4xl mb-4">{movie.title}</h1>
+        <h1 className="text-4xl mb-4 text-white">{movie.title}</h1>
         <div>
-          <span className="font-bold">Director:</span>
-          <span className="ml-2">{director}</span>
+          <span className="font-bold text-white">Director:</span>
+          <span className="ml-2 text-white">{director}</span>
           <br />
-          <span className="font-bold">Cast:</span>
-        <span className="ml-2">
+          <span className="font-bold text-white">Cast:</span>
+        <span className="ml-2 text-white">
           {cast.slice(0, 5).map((actor, index) => (
-            <span key={index} className="mr-4">
+            <span key={index} className="mr-4 text-white">
               {actor.name}{index < 4 ? ',' : ''}
             </span>
           ))}
         </span>
-        <h3 className='pt-8'>{movie.overview}</h3>
+        <h3 className='pt-8 text-white'>{movie.overview}</h3>
         </div>
 
       </div>
