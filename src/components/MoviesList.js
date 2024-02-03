@@ -2,8 +2,19 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import MovieCard from './MovieCard';
 
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
 const MovieList = ({ listType }) => {
   const [movies, setMovies] = useState([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,13 +36,28 @@ const MovieList = ({ listType }) => {
     fetchData();
   }, []);
 
+
   return (
     <div>
-      <ul className='grid gap-4 grid-rows-1 grid-cols-7'>
+    <Swiper
+      // install Swiper modules
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      spaceBetween={50}
+      slidesPerView={7}
+      navigation
+      pagination={{ clickable: true }}
+      scrollbar={{ draggable: true }}
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}
+    >
+      <ul className='grid gap-4 grid-rows-1 grid-cols-7 '>
         {movies.map((movie) => (
+          <SwiperSlide className='pb-8'>
           <MovieCard title={movie.title} overview={movie.overview} id={movie.id} posterPath={movie.poster_path}/>
+          </SwiperSlide>
         ))}
       </ul>
+    </Swiper>
     </div>
   );
 };
